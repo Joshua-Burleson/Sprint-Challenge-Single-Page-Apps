@@ -9,12 +9,12 @@ import backArrow from '../images/back.png'
 
 
 const Pagination = props => {
-    const changePage = forward => forward ? props.setPage(props.page + 1) : (props.page > 1 ? props.setPage(props.page - 1) : null);
+    const changePage = forward => forward ? props.setPage(Number(props.page) + 1) : (Number(props.page) > 1 ? props.setPage(Number(props.page) - 1) : null);
     return (
         <ArrowBar>
-            <NavLink to={`/characters/?page=${props.page > 1 ? props.page - 1 : 1}`}><PageButton onClick = {() => changePage(false)}><ArrowImg src={backArrow} /></PageButton></NavLink>
+            <NavLink to={`/characters/?page=${Number(props.page) > 1 ? Number(props.page) - 1 : 1}`}><PageButton onClick = {() => changePage(false)}><ArrowImg src={backArrow} /></PageButton></NavLink>
             <h3>Page {props.page}</h3>
-            <NavLink to={`/characters/?page=${props.page + 1}`}><PageButton onClick = {() => changePage(true)}><ArrowImg src={forwardArrow} /></PageButton></NavLink>
+            <NavLink to={`/characters/?page=${Number(props.page) + 1}`}><PageButton onClick = {() => changePage(true)}><ArrowImg src={forwardArrow} /></PageButton></NavLink>
         </ArrowBar>
     );
 };
