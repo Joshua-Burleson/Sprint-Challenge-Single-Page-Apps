@@ -1,10 +1,25 @@
 import React, { useState } from "react";
+import {Form, Field, withFormik} from 'formik';
 
-export default function SearchForm() {
+const  SearchForm = props => {
  
   return (
-    <section className="search-form">
-     // Add a search form here
-    </section>
+    <Form>
+      <Field type="input" name="search" placeholder="Search" />
+      <button type="submit">Submit</button>
+    </Form>
   );
 }
+
+const FormikSearch = withFormik({
+  mapPropsToValues({search}){
+    return {search : search || ''}
+  },
+  handleSubmit(values, FormikBag){
+    FormikBag.props.findChar(values.search);
+    values.search = '';
+  }
+})(SearchForm);
+
+
+export default FormikSearch;
