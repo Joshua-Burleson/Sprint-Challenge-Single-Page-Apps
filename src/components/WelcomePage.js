@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from 'react-router-dom';
 
 export default function WelcomePage() {
   return (
@@ -11,6 +12,7 @@ export default function WelcomePage() {
           alt="rick"
         />
       </header>
+      <NavLink to="/characters">Characters</NavLink>
     </section>
   );
-}
+};

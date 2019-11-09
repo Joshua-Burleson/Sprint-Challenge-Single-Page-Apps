@@ -4,7 +4,7 @@ import CharacterDiv from './styles/CharacterStyle';
 export default function CharacterCard(props) {
   return (
     <CharacterDiv key={`${props.char.name}${props.char.id}`}>
-      <img src={props.char.image} />
+      <img src={props.char.image} alt={props.char.name}/>
       <h3>{props.char.name}</h3>
       <p>{`Status: ${props.char.status}`}</p>
     </CharacterDiv>
